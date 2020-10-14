@@ -1,0 +1,149 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+        
+        <style>
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color:#111;
+    color:#fff;
+}
+
+.container {
+    width:100vw;
+    height:100vh;
+    min-width:300px;
+    min-height:400px;
+}
+
+input {
+    box-sizing:border-box;
+    width:100%;
+    height:20vh;
+    min-height:60px;
+    margin:0px;
+    padding: 1em;
+    border:none;
+    color:#fff;
+    background:#1a1a1a;
+    border-bottom:2px solid #8C9;
+    text-align:right;
+    letter-spacing:3px;
+    font-size: 2.3em;
+    outline:none;
+    font-weight:100;
+    text-shadow: 0 0 2px rgba(0,0,0,1);
+}
+
+table {
+    width:100%;
+    height:70vh;
+    min-width:300px;
+    min-height:300px;
+    background:#111;
+}
+
+td {
+    border: 0.2px solid rgba(200,200,200,0.2);
+}
+
+
+button {
+    width:100%;
+    height:100%;
+    font-size:1.5em;
+    border:none;
+    background:transparent;
+    color:#fff;
+    outline-color:rgba(200, 200, 200, 0.8);
+}
+
+ 
+            
+            
+        </style>
+        
+        
+        <div class="container">
+            <div class="header">
+                <input type="text" placeholder="0" id="input" editable="false"/>
+            </div>
+              <div>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><button id="clr">C</button></td>
+                    <td><button onclick="put('/')">/</button></td>
+                    <td><button onclick="put('*')">&times;</button></td>
+                    <td><button id="del"><</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="put('7')">7</button></td>
+                    <td><button onclick="put('8')">8</button></td>
+                    <td><button onclick="put('9')">9</button></td>
+                    <td><button onclick="put('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="put('4')">4</button></td>
+                    <td><button onclick="put('5')">5</button></td>
+                    <td><button onclick="put('6')">6</button></td>
+                    <td><button onclick="put('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="put('1')">1</button></td>
+                    <td><button onclick="put('2')">2</button></td>
+                    <td><button onclick="put('3')">3</button></td>
+                    <td rowspan="2"><button style="background: #89D" onclick="calc()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button onclick="put('0')">0</button></td>
+                    <td><button onclick="put('.')">.</button></td>
+                </tr>
+            </table>
+          </div>
+        </div>
+        <script>
+
+window.addEventListener("DOMContentLoaded", function() {
+    var input = document.getElementById("input");
+    document.getElementById("clr").addEventListener("click", function() {
+        input.value = null;
+    });       
+          
+                            document.getElementById("del").addEventListener("click", function() {
+        var str = input.value;
+        input.value = str.slice(0, str.length-1);
+    });
+})
+
+function put(put) {
+    input.value += put;
+}
+
+function calc() {
+    input.value = eval(input.value)
+}
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
